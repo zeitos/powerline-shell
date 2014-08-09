@@ -40,14 +40,14 @@ def add_git_segment():
     has_pending_commits, has_untracked_files, origin_position = get_git_status()
     branch += origin_position
     if has_untracked_files:
-        branch += ' +'
+        branch += u' \xb1'
 
     bg = Color.REPO_CLEAN_BG
     fg = Color.REPO_CLEAN_FG
     if has_pending_commits:
         bg = Color.REPO_DIRTY_BG
         fg = Color.REPO_DIRTY_FG
-
+    branch = u'\ue0a0 ' + branch
     powerline.append(' %s ' % branch, fg, bg)
 
 try:
